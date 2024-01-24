@@ -57,7 +57,7 @@ with DAG(
         python_callable=load_raw_2,
         dag=dag
     )
-    step_master = PythonOperator(
+    step_master_2 = PythonOperator(
         task_id='step_master_2',
         python_callable=load_master_2,
         dag=dag
@@ -67,7 +67,7 @@ with DAG(
         python_callable=load_master,
         dag=dag
     )
-    step_master = PythonOperator(
+    step_bi = PythonOperator(
         task_id='step_bi',
         python_callable=load_bi,
         dag=dag
