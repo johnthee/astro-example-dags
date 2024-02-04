@@ -472,4 +472,4 @@ with DAG(
         python_callable=end_process,
         dag=dag
     )
-    step_start>>[fun_load_products, fun_load_customers, fun_load_orders, fun_load_order_items, fun_load_categories, fun_load_departments, fun_build_master]>>step_end
+    step_start>>fun_load_products>>fun_load_customers>>fun_load_orders>>fun_load_order_items>>fun_load_categories>>fun_load_departments>>fun_build_master>>step_end
