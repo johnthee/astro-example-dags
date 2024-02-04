@@ -29,7 +29,7 @@ def get_connect_mongo():
 
     return client
 ## 1.2 Conection to big query
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/JCAMPOS/Desktop/DE DATA PATH/Módulo 8. Data Engineering  with Python/fluted-clock-411618-1e535991c221.json"
+#os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/JCAMPOS/Desktop/DE DATA PATH/Módulo 8. Data Engineering  with Python/fluted-clock-411618-1e535991c221.json"
 
 #2 Dags functions
     
