@@ -269,6 +269,7 @@ def load_categories():
     categories= collection_name.find({})  
     categories_df = DataFrame(categories)
     dbconnect.close()
+    categories_df['_id'] = categories_df['_id'].astype(str)
     categories_rows=len(categories_df)
     if categories_rows>0 :
         client = bigquery.Client(project='fluted-clock-411618')
@@ -277,7 +278,7 @@ def load_categories():
         job_config = bigquery.LoadJobConfig(
             schema=[
                 bigquery.SchemaField("category_id", bigquery.enums.SqlTypeNames.INTEGER),
-                bigquery.SchemaField("category_department_id", bigquery.enums.SqlTypeNames.INTEGER),
+                bigquery.SchemaField("category_department_id", bigquery.enums.SqlTypeNames.INTEGER,
                 bigquery.SchemaField("category_name", bigquery.enums.SqlTypeNames.STRING),
             ],
             write_disposition="WRITE_TRUNCATE",
