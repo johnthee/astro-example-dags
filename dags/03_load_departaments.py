@@ -39,7 +39,7 @@ def get_group_status(text):
     return d
 
 def multiplicacion(x):
-    return x*tipocambio_df.compra[0]
+    return x*y
 
 
 # 1 Conections
@@ -384,7 +384,9 @@ def build_master():
         }
     dwn_url_tipcambio='https://www.sunat.gob.pe/a/txt/tipoCambio.txt'
     tipcambio_df = pd.read_csv(dwn_url_tipcambio, names=headers_files['tipocambio'], sep='|')
+    
     tipcambio_df = tipcambio_df.drop(columns=['error'])
+    y = tipcambio_df.compra[0]
     df_master['order_item_subtotal_mn']  = df_master['order_item_subtotal'].map(multiplicacion)
 
     df_master_rows=len(df_master)
