@@ -60,7 +60,7 @@ def get_group_status(text):
     return d
 
 def multiplicacion(x):
-    return x*tipcambio_df.compra[0]
+    return x*tipocambio_df.compra[0]
 
 #4 Load functions
 def load_orders():
@@ -476,4 +476,5 @@ with DAG(
         dag=dag
     )
     
+
     step_start>>fun_load_products>>fun_load_customers>>fun_load_orders>>fun_load_order_items>>fun_load_categories>>fun_load_departments>>fun_build_master>>step_end
