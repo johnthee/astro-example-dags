@@ -422,7 +422,7 @@ def build_master():
             )
         )
     else : 
-        print('alerta no hay registros en la tabla order_items')
+        print('alerta no hay registros en la tabla order_items, aqui vamos1')
 
 with DAG(
     dag_id="load_project",
