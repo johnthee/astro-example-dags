@@ -43,7 +43,7 @@ def end_process():
 
 ##3.1 Date transformation
 def transform_date(text):
-    print(f"Ejecutando transform_date")
+    #print(f"Ejecutando transform_date")
     text = str(text)
     d = text[0:10]
     return d
@@ -135,7 +135,9 @@ def load_order_items():
     order_items_df = DataFrame(order_items)
     dbconnect.close()
     order_items_df['_id'] = order_items_df['_id'].astype(str)
+    print('before transform date')
     order_items_df['order_date']  = order_items_df['order_date'].map(transform_date)
+    print('after transform date')
     order_items_df['order_date'] = pd.to_datetime(order_items_df['order_date'], format='%Y-%m-%d').dt.date
 
     order_items_rows=len(order_items_df)
