@@ -389,11 +389,6 @@ with DAG(
         python_callable=load_departments,
         dag=dag
     )
-    fun_build_master= PythonOperator(
-        task_id='build_master_id',
-        python_callable=build_master,
-        dag=dag
-    )
     step_end = PythonOperator(
         task_id='step_end_id',
         python_callable=end_process,
