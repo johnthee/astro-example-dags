@@ -387,7 +387,9 @@ def build_master():
     
     tipcambio_df = tipcambio_df.drop(columns=['error'])
     y = tipcambio_df.compra[0]
-    df_master['order_item_subtotal_mn']  = df_master['order_item_subtotal'].map(multiplicacion)
+    #df_master['order_item_subtotal_mn']  = df_master['order_item_subtotal'].map(multiplicacion)
+    df_master['order_item_subtotal_mn']  = df_master['order_item_subtotal'].apply(lambda x: x*y)
+    #.map(multiplicacion)
 
     df_master_rows=len(df_master)
     if df_master_rows>0 :
