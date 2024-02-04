@@ -279,7 +279,7 @@ def load_categories():
             schema=[
                 bigquery.SchemaField("category_id", bigquery.enums.SqlTypeNames.INTEGER),
                 bigquery.SchemaField("category_department_id", bigquery.enums.SqlTypeNames.INTEGER),
-                bigquery.SchemaField("category_name", bigquery.enums.SqlTypeNames.STRING),
+                bigquery.SchemaField("category_name", bigquery.enums.SqlTypeNames.STRING)
             ],
             write_disposition="WRITE_TRUNCATE",
         )
