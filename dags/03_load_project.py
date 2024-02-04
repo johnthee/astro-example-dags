@@ -305,6 +305,7 @@ def load_departments():
     collection_name = dbname["departments"] 
     departments= collection_name.find({})  
     departments_df = DataFrame(departments)
+    departments_df['_id'] = departments_df['_id'].astype(str)
     dbconnect.close()
 
     departments_rows=len(departments_df)
@@ -346,6 +347,7 @@ def load_departments():
     else : 
         print('alerta no hay registros en la tabla departments')
 
+"""
 def build_master():
     client = bigquery.Client(project='fluted-clock-411618')
     query_string = """
@@ -418,7 +420,7 @@ def build_master():
         )
     else : 
         print('alerta no hay registros en la tabla order_items')
-
+"""
 
 with DAG(
     dag_id="load_project",
@@ -471,4 +473,5 @@ with DAG(
         python_callable=end_process,
         dag=dag
     )
-    step_start>>fun_load_products>>fun_load_customers>>fun_load_orders>>fun_load_order_items>>fun_load_categories>>fun_load_departments>>fun_build_master>>step_end
+    #>>fun_build_master
+    step_start>>fun_load_products>>fun_load_customers>>fun_load_orders>>fun_load_order_items>>fun_load_categories>>fun_load_departments>>step_end
