@@ -148,14 +148,10 @@ def load_order_items():
         job_config = bigquery.LoadJobConfig(
             schema=[
                 bigquery.SchemaField("_id", bigquery.enums.SqlTypeNames.STRING),
+                bigquery.SchemaField("order_id", bigquery.enums.SqlTypeNames.INTEGER),
                 bigquery.SchemaField("order_date", bigquery.enums.SqlTypeNames.DATE),
-                bigquery.SchemaField("order_item_id", bigquery.enums.SqlTypeNames.INTEGER),
-                bigquery.SchemaField("order_item_id", bigquery.enums.SqlTypeNames.INTEGER),
-                bigquery.SchemaField("order_item_order_id", bigquery.enums.SqlTypeNames.INTEGER),
-                bigquery.SchemaField("order_item_product_id", bigquery.enums.SqlTypeNames.INTEGER),
-                bigquery.SchemaField("order_item_quantity", bigquery.enums.SqlTypeNames.INTEGER),
-                bigquery.SchemaField("order_item_subtotal", bigquery.enums.SqlTypeNames.FLOAT),
-                bigquery.SchemaField("order_item_product_price", bigquery.enums.SqlTypeNames.FLOAT),
+                bigquery.SchemaField("order_customer_id", bigquery.enums.SqlTypeNames.INTEGER),
+                bigquery.SchemaField("order_status", bigquery.enums.SqlTypeNames.STRING),
             ],
             write_disposition="WRITE_TRUNCATE",
         )
